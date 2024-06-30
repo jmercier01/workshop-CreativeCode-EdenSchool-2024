@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5.js</title>
+    <style>
+        *{margin:0;padding:0}
+    </style>
+</head>
+<body>
+    <main>
+    </main>
+    <script>
+        f = 0;
+        pal = ["#8ecae6","#219ebc","#023047","#ffb703","#fb8500"] 
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noFill();
+            
+            pos1x = random(width)
+            pos2x = random(width)
+            pos1y = random(height)
+            pos2y = random(height)
+            d = 16
+            shuffle(pal,1);
+            stroke(pal[1])
+        }
+        function draw() {
+            background(pal[0]);
+            f++;
+            strokeWeight(mouseX*0.005)
+            for(let i=0;i<width*2;i+=d){
+                circle(pos1x,pos1y,i + (f%d))
+                circle(pos2x,pos2y,i + (f%d))
+                if(mouseIsPressed){
+                    circle(mouseX,mouseY,i + (f%d))
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

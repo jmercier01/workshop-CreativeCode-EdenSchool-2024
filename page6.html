@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5.js</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+    </main>
+    <script>
+        
+        pal = ["#8ecae6", "#219ebc", "#023047", "#ffb703", "#fb8500"]
+        f = 0;
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight, WEBGL);
+            shuffle(pal, 1);
+            stroke(255)
+            c = color(pal[0])
+            background(c);
+            
+
+        }
+        function draw() {
+            f++;
+            push();
+            normalMaterial();
+            translate(map(noise(f*0.01),0,1,-200,200),map(noise(3e9+f*0.01),0,1,-200,200),0)
+            rotate(f*0.05,[1,1,0])
+            box(map(noise(7e9+f*0.01),0,1,-10,200))
+            pop();
+
+        }
+    </script>
+</body>
+
+</html>

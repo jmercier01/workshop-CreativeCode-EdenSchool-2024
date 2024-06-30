@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5.js</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+    </main>
+    <script>
+        ease = 0.05;
+        pal = ["#8ecae6", "#219ebc", "#023047", "#ffb703", "#fb8500"]
+        f = 0;
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight, WEBGL);
+            shuffle(pal, 1);
+            stroke(255)
+            c = color(pal[0])
+            background(c);
+            x = 0, y = 0;
+
+        }
+        function draw() {
+            f++;
+            fill(pal[1])
+            // background(c);
+            if (mouseIsPressed) {
+                x += (mouseX - x) * ease
+                y += (mouseY - y) * ease
+                translate(x - width / 2, y - height / 2, 0)
+                rotate(TAU / 8 + (f * 0.01), [0.5, 0.5, 1])
+                box(width * 0.125)
+            } else {
+                x = mouseX;
+                y = mouseY;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

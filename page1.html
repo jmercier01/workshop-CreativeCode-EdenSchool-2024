@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5.js</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+    </main>
+    <script>
+        f = 0;
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            background("#023047");
+            noFill();
+            stroke("#8ecae6")
+            strokeWeight(a = 2);
+            pos1x = random(width)
+            pos2x = random(width)
+            pos1y = random(height)
+            pos2y = random(height)
+
+
+        }
+        function draw() {
+            f++;
+            circle(pos1x, pos1y, f * a * 5);
+            circle(pos2x, pos1y, f * a * 5);
+        }
+    </script>
+</body>
+
+</html>
